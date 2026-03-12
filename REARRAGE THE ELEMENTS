@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+        vector<int>res;
+        vector<int>ps;
+        vector<int>ng;
+        for(auto i : nums){
+            if(i < 0) ng.push_back(i);
+            else ps.push_back(i);
+        }
+        int p = 0;
+        int n = 0;
+        for(int i=0;i<nums.size();i++){
+            if(i%2==0){
+                res.push_back(ps[p]);
+                p++;
+            }
+            else{
+                res.push_back(ng[n]);
+                n++;
+            }
+        }
+        return res;
+    }
+};
